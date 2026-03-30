@@ -1,2 +1,160 @@
-# curso_docker
-Repositório para guardar conteúdos e materiais do curso de Docker
+Para dominar o Docker desde a teoria até a administração de um cluster Swarm em escala, é fundamental seguir uma progressão lógica: entender o "porquê" antes do "como", dominar o single-node antes de escalar para o multi-node, e finalmente focar em observabilidade e operações.
+
+Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado para levar você do zero à administração de clusters complexos.
+
+---
+
+###  Módulo 1: Fundamentos e Contexto Histórico
+*Objetivo: Entender o problema que o Docker resolve e as tecnologias subjacentes.*
+
+1.  **O Problema da Inconsistência de Ambientes**
+    *   O clássico "funciona na minha máquina".
+    *   Diferenças entre Desenvolvimento, Teste e Produção.
+2.  **Evolução da Virtualização**
+    *   Virtualização Tradicional (Hypervisors Type 1 e Type 2): VMs completas com SO convidado.
+    *   Limitações das VMs: Overhead de recursos, lentidão no boot, consumo de disco.
+3.  **Tecnologias que Permitiram o Docker (Linux Kernel)**
+    *   **Namespaces**: Isolamento de processos, rede, usuários, montagens (PID, NET, UTS, IPC, MNT, USER).
+    *   **Control Groups (cgroups)**: Limitação e contabilização de recursos (CPU, Memória, I/O).
+    *   **Union File Systems (OverlayFS)**: Camadas de imagem e eficiência de armazenamento.
+    *   **Chroot**: Mudança de raiz do sistema de arquivos.
+4.  **Arquitetura do Docker**
+    *   Cliente Docker (CLI) vs. Daemon (`dockerd`).
+    *   Registry (Docker Hub, ECR, GCR, Harbor).
+    *   Imagens vs. Containers.
+
+---
+
+### Módulo 2: Operações Básicas e Ciclo de Vida
+*Objetivo: Construir, executar e gerenciar containers individuais.*
+
+1.  **Imagens e Dockerfile**
+    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
+    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
+    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
+2.  **Gerenciamento de Containers**
+    *   Ciclo de vida: `run`, `start`, `stop`, `restart`, `rm`.
+    *   Inspeção: `docker ps`, `docker inspect`, `docker logs`, `docker exec`.
+    *   Limpeza: `docker system prune`.
+3.  **Port Mapping e Exposição**
+    *   Diferença entre `EXPOSE` (metadado) e `-p` (mapeamento real).
+    *   Publicação de portas para o host.
+
+---
+
+### 🟡 Módulo 3: Persistência, Configuração e Segurança Básica
+*Objetivo: Gerenciar dados stateful e segredos fora do código da aplicação.*
+
+1.  **Armazenamento (Storage Drivers & Volumes)**
+    *   Tipos de montagem:
+        *   **Volumes**: Gerenciados pelo Docker (recomendado para produção).
+        *   **Bind Mounts**: Diretórios específicos do host (útil para dev).
+        *   **tmpfs**: Armazenamento em memória RAM.
+    *   Comandos: `docker volume create`, `ls`, `inspect`, `rm`.
+    *   Estratégia de backup de volumes.
+2.  **Rede em Single Node**
+    *   Drivers de rede padrão: `bridge`, `host`, `none`.
+    *   Criação de redes customizadas (`docker network create`).
+    *   DNS interno do Docker (resolução de nomes entre containers na mesma rede).
+    *   Isolamento de rede e exposição seletiva.
+3.  **Configs e Secrets (Introdução)**
+    *   Por que não usar variáveis de ambiente para tudo?
+    *   Conceito de **Docker Configs** (arquivos de configuração não sensíveis).
+    *   Conceito de **Docker Secrets** (senhas, chaves API, certificados).
+    *   *Nota:* Embora funcionem em modo standalone com limitações, seu uso pleno será explorado no Swarm.
+
+---
+
+###  Módulo 4: Orquestração com Docker Swarm
+*Objetivo: Transformar múltiplos hosts em um único cluster virtualizado.*
+
+1.  **Conceitos de Cluster Swarm**
+    *   Arquitetura: Manager Nodes vs. Worker Nodes.
+    *   Raft Consensus Algorithm (tolerância a falhas dos managers).
+    *   Inicialização: `docker swarm init` e `docker swarm join`.
+2.  **Serviços (Services) vs. Containers**
+    *   Modelo declarativo: Definir o estado desejado (`replicas`, `image`, `ports`).
+    *   Comandos: `docker service create`, `ls`, `ps`, `scale`, `update`, `rollback`.
+    *   Estratégias de atualização: `rolling update` (atualização contínua sem downtime) e `global` (um container por nó).
+3.  **Rede no Swarm (Overlay Network)**
+    *   Criando redes Overlay para comunicação entre nós diferentes.
+    *   Balanceamento de carga interno (Routing Mesh): Como o tráfego chega a qualquer nó e é roteado para o container correto, mesmo que ele esteja em outro nó.
+    *   Publicação de portas no modo `host` vs. modo `ingress`.
+4.  **Gestão Avançada de Configs e Secrets no Swarm**
+    *   Criando e atualizando secrets/configs no nível do cluster.
+    *   Montagem segura em serviços (arquivos temporários em `/run/secrets`).
+    *   Rotação de segredos sem reiniciar o serviço manualmente (atualização rolling).
+5.  **Escalonamento e Restrições**
+    *   Labels e Constraints: Rodar serviços apenas em nós específicos (ex: `node.role == manager` ou `disktype == ssd`).
+    *   Resource Limits no Swarm: Definir CPU/Memória máxima e garantida por serviço.
+    *   Placement Preferences: Preferências de espalhamento (spread) ou concentração (binpack).
+
+---
+
+### Módulo 5: Administração de Cluster em Escala (Dezenas de Serviços)
+*Objetivo: Operar, manter e otimizar um ambiente produtivo complexo.*
+
+1.  **Governança de Imagens em Cluster**
+    *   Implementação de Registry Privado (ex: Harbor ou Registry local com TLS).
+    *   Políticas de retenção de imagens antigas nos nós workers.
+2.  **Segurança do Cluster**
+    *   Gerenciamento de certificados TLS mútuos entre nós.
+    *   Token de junção (rotation de tokens).
+    *   Hardening do Daemon Docker (`daemon.json`).
+    *   User Namespaces e Seccomp profiles.
+3.  **Manutenção e Atualização do Cluster**
+    *   Atualização do Docker Engine em nós vivos (Drain node -> Update -> Uncordon).
+    *   Adição e remoção dinâmica de nós workers.
+    *   Recuperação de desastre: O que acontece se perdermos a maioria dos Managers? (Backup do diretório `/var/lib/docker/swarm`).
+4.  **Logs Centralizados**
+    *   O problema dos logs distribuídos em dezenas de nós.
+    *   Configuração de drivers de log (`json-file`, `syslog`, `fluentd`, `gelf`).
+    *   Encaminhamento de logs para agregadores externos.
+
+---
+
+### Módulo 6: Monitoramento e Observabilidade
+*Objetivo: Visibilidade total sobre a saúde dos serviços e do cluster.*
+
+1.  **Métricas Nativas e Exportação**
+    *   Uso do `docker stats` (limitado para produção).
+    *   Habilitação da API de métricas do Docker (`--metrics-addr`).
+2.  **Stack de Monitoramento (Prometheus + Grafana)**
+    *   Deploy do **Prometheus** como um serviço no Swarm.
+    *   Configuração do **cAdvisor** ou **Docker Exporter** para coletar métricas de containers.
+    *   Criação de Dashboards no **Grafana**:
+        *   Uso de CPU/Memória por serviço.
+        *   Taxa de restarts de containers.
+        *   Latência de rede entre serviços.
+3.  **Alertas e Healthchecks**
+    *   Configuração de `HEALTHCHECK` no Dockerfile ou no Service definition.
+    *   Integração do Prometheus Alertmanager (enviar alertas para Slack/Email/PagerDuty se um serviço cair ou consumir muitos recursos).
+4.  **Logging Stack (ELK ou Loki)**
+    *   Implementação de **Loki** (leve) ou **ELK Stack** (Elasticsearch, Logstash, Kibana) rodando no Swarm.
+    *   Correlação de logs entre múltiplos serviços de uma mesma transação (Trace ID).
+
+---
+
+###  Projeto Prático Sugerido para Fixação
+
+Para consolidar todo esse conhecimento, sugiro construir o seguinte cenário:
+
+1.  Suba 3 VMs (pode ser VirtualBox, AWS EC2 ou DigitalOcean).
+2.  Instale Docker e forme um **Swarm Cluster** (1 Manager, 2 Workers).
+3.  Crie uma aplicação composta por:
+    *   Frontend (Nginx/React).
+    *   Backend (Node.js/Python/Go).
+    *   Banco de Dados (Postgres com Volume persistente).
+    *   Cache (Redis).
+4.  Configure uma **Rede Overlay**.
+5.  Use **Secrets** para a senha do banco de dados e **Configs** para arquivos de configuração do app.
+6.  Defina restrições para que o Banco de Dados rode apenas em um nó específico com label `db-node=true`.
+7.  Simule falha: Derrube o nó worker onde o backend está rodando e observe o Swarm recriando o serviço automaticamente em outro nó.
+8.  Implante **Prometheus/Grafana** para monitorar o cluster e crie um dashboard mostrando o uso de recursos de cada serviço.
+
+### Recursos Recomendados
+*   **Documentação Oficial**: docs.docker.com (sempre a fonte mais atualizada).
+*   **Play with Docker / Play with Swarm**: Ambientes gratuitos no navegador para testes rápidos.
+*   **Livro**: "Docker Deep Dive" de Nigel Poulton.
+
+
