@@ -42,7 +42,7 @@ Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado
 
 ---
 
-### 🟡 Módulo 3: Persistência, Configuração e Segurança Básica
+### Módulo 3: Persistência, Configuração e Segurança Básica
 *Objetivo: Gerenciar dados stateful e segredos fora do código da aplicação.*
 
 1.  **Armazenamento (Storage Drivers & Volumes)**
