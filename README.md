@@ -153,8 +153,5 @@ Para consolidar todo esse conhecimento, sugiro construir o seguinte cenário:
 8.  Implante **Prometheus/Grafana** para monitorar o cluster e crie um dashboard mostrando o uso de recursos de cada serviço.
 
 ### Recursos Recomendados
-*   **Documentação Oficial**: docs.docker.com (sempre a fonte mais atualizada).
-*   **Play with Docker / Play with Swarm**: Ambientes gratuitos no navegador para testes rápidos.
-*   **Livro**: "Docker Deep Dive" de Nigel Poulton.
-
+*   **Documentação Oficial**: [docs.docker.com](https://docs.docker.com/) (sempre a fonte mais atualizada).
 
