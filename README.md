@@ -28,14 +28,14 @@ Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado
 ### Módulo 2: Operações Básicas e Ciclo de Vida
 *Objetivo: Construir, executar e gerenciar containers individuais.*
 
-1.  **Imagens e Dockerfile**
-    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
-    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
-    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
-2.  **Gerenciamento de Containers**
+1.  **Gerenciamento de Containers**
     *   Ciclo de vida: `run`, `start`, `stop`, `restart`, `rm`.
     *   Inspeção: `docker ps`, `docker inspect`, `docker logs`, `docker exec`.
     *   Limpeza: `docker system prune`.
+2.  **Imagens e Dockerfile**
+    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
+    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
+    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
 3.  **Port Mapping e Exposição**
     *   Diferença entre `EXPOSE` (metadado) e `-p` (mapeamento real).
     *   Publicação de portas para o host.
