@@ -35,7 +35,7 @@ Um container é simplesmente um processo isolado com todos os arquivos necessár
 
 Siga as instruções para executar um container usando a CLI:
 
-1. Abra seu terminal CLI e inicie um container usando o comando [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/):
+1. Abra seu terminal CLI e inicie um container usando o comando [`docker run`](https://docs.docker.com/reference/cli/docker/container/run/){:target="_blank"}:
 
     ```console
     $ docker run -d -p 8080:80 docker/welcome-to-docker
