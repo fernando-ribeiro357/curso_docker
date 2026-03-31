@@ -31,64 +31,6 @@ Um container é simplesmente um processo isolado com todos os arquivos necessár
 
 ## Experimente
 
-Nesta prática, você verá como executar um container Docker usando a interface gráfica (GUI) do Docker Desktop.
-
-**Usando a Interface Gráfica (GUI)**
-
-Siga as instruções abaixo para executar um container:
-
-1. Abra o Docker Desktop e selecione o campo **Search** (Pesquisar) na barra de navegação superior.
-2. Especifique `welcome-to-docker` na entrada de pesquisa e selecione o botão **Pull**.
-
-    ![Uma captura de tela do Painel do Docker Desktop mostrando o resultado da pesquisa para a imagem Docker welcome-to-docker](img/search-the-docker-image.webp?border=true&w=1000&h=700)
-
-3. Assim que a imagem for baixada com sucesso, selecione o botão **Run** (Executar).
-4. Expanda as **Optional settings** (Configurações opcionais).
-5. Em **Container name** (Nome do container), especifique `welcome-to-docker`.
-6. Em **Host port** (Porta do host), especifique `8080`.
-
-    ![Uma captura de tela do Painel do Docker Desktop mostrando a caixa de diálogo de execução do container com welcome-to-docker digitado como nome do container e 8080 especificado como número da porta](img/run-a-new-container.webp?border=true&w=550&h=400)
-
-7. Selecione **Run** para iniciar seu container.
-
-Parabéns! Você acabou de executar seu primeiro container! 🎉
-
-### Visualize seu container
-
-Você pode visualizar todos os seus containers acessando a visualização **Containers** do Painel do Docker Desktop.
-
-![Captura de tela da visualização de containers da GUI do Docker Desktop mostrando o container welcome-to-docker rodando na porta do host 8080](img/view-your-containers.webp?border=true&w=750&h=600)
-
-Este container executa um servidor web que exibe um site simples. Ao trabalhar com projetos mais complexos, você executará partes diferentes em containers diferentes. Por exemplo, você pode executar um container diferente para o frontend, backend e banco de dados.
-
-### Acesse o frontend
-
-Quando você iniciou o container, expôs uma das portas do container na sua máquina. Pense nisso como criar uma configuração que permite conectar-se através do ambiente isolado do container.
-
-Para este container, o frontend é acessível na porta `8080`. Para abrir o site, selecione o link na coluna **Port(s)** do seu container ou visite [http://localhost:8080](http://localhost:8080) no seu navegador.
-
-![Captura de tela da página inicial vinda do container em execução](img/access-the-frontend.webp?border)
-
-### Explore seu container
-
-O Docker Desktop permite explorar e interagir com diferentes aspectos do seu container. Experimente você mesmo.
-
-1. Vá para a visualização **Containers** no Painel do Docker Desktop.
-2. Selecione seu container.
-3. Selecione a aba **Files** (Arquivos) para explorar o sistema de arquivos isolado do seu container.
-
-    ![Captura de tela do Painel do Docker Desktop mostrando os arquivos e diretórios dentro de um container em execução](img/explore-your-container.webp?border)
-
-### Pare seu container
-
-O container `docker/welcome-to-docker` continua rodando até que você o pare.
-
-1. Vá para a visualização **Containers** no Painel do Docker Desktop.
-2. Localize o container que deseja parar.
-3. Selecione a ação **Stop** (Parar) na coluna **Actions** (Ações).
-
-    ![Captura de tela do Painel do Docker Desktop com o container welcome selecionado e preparado para parar](img/stop-your-container.webp?border)
-
 **Usando a CLI (Linha de Comando)**
 
 Siga as instruções para executar um container usando a CLI:
@@ -128,7 +70,7 @@ Este container executa um servidor web que exibe um site simples. Ao trabalhar c
 
 Quando você lançou o container, expôs uma das portas do container na sua máquina. Pense nisso como criar uma configuração que permite conectar-se através do ambiente isolado do container.
 
-Para este container, o frontend é acessível na porta `8080`. Para abrir o site, selecione o link na coluna **Port(s)** do seu container ou visite [http://localhost:8080](http://localhost:8080) no seu navegador.
+Para este container, o frontend é acessível na porta `8080`. Para abrir o site, visite [http://localhost:8080](http://localhost:8080) no seu navegador.
 
 ![Captura de tela da página inicial do servidor web Nginx, vinda do container em execução](img/access-the-frontend.webp?border)
 
@@ -159,8 +101,12 @@ Os links a seguir fornecem orientações adicionais sobre containers:
 - [Visão geral de container](https://www.docker.com/resources/what-container/)
 - [Por que Docker?](https://www.docker.com/why-docker/)
 
+## Referências
+
+[docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
+
 ## Próximos passos
 
 Agora que você aprendeu o básico de um container Docker, é hora de aprender sobre imagens Docker.
 
-[O que é uma imagem?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/)
+[O que é uma imagem?](02_o-que-e-uma-imagem.md)
