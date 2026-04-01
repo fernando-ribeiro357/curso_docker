@@ -43,6 +43,17 @@ Siga as instruções para executar um container usando a CLI:
 
     A saída deste comando é o ID completo do container.
 
+
+> **Aqui está a explicação detalhada de cada parte do comando:**
+> * `docker run`: É o comando principal que cria e inicia um novo container a partir de uma imagem.
+> * `-d` (ou `--detach`): Executa o container em **modo desacoplado** (background). Isso significa que o terminal não ficará "preso" aguardando o processo do container terminar; ele retorna imediatamente ao prompt de comando, deixando o container rodando silenciosamente.
+> * `-p 8080:80`: Define o **mapeamento de portas** (Port Mapping).
+>   * O primeiro número (**8080**) é a porta no seu **computador host** (sua máquina).
+>   * O segundo número (**80**) é a porta dentro do **container**.
+>   * **O que isso faz:** Qualquer tráfego que chegar na porta `8080` do seu computador será redirecionado automaticamente para a porta `80` dentro do container. Como a aplicação dentro da imagem `welcome-to-docker` (que é um servidor web Nginx) escuta na porta 80, você consegue acessá-la digitando `http://localhost:8080` no seu navegador.
+>
+> *  `docker/welcome-to-docker`: É o nome da **imagem** que será usada para criar o container. Se essa imagem não estiver baixada localmente, o Docker a buscará automaticamente no Docker Hub antes de iniciar o container.
+
 Parabéns! Você acabou de iniciar seu primeiro container! 🎉
 
 ### Visualize seus containers em execução

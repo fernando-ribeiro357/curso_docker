@@ -36,9 +36,10 @@ Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado
     *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
     *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
     *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
-3.  **Port Mapping e Exposição**
-    *   Diferença entre `EXPOSE` (metadado) e `-p` (mapeamento real).
-    *   Publicação de portas para o host.
+3.  **Registro de Imagens (Registry)**
+    * O que é um Registry?
+    * Tipos de Registries: públicos (Docker Hub, GitHub Container Registry, Quay.io) ou privados (ex: usando a imagem oficial registry:2, Harbor, Nexus, GitLab Registry).
+    * Nomenclatura e Tags: Estrutura do nome da imagem (`[registry-host]/[namespace]/[repository]:[tag]`).
 
 ---
 
