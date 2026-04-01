@@ -1,6 +1,6 @@
-# O que é uma imagem?
+# **Módulo 2.2: Imagens e Dockerfile**
 
-## Explicação
+## O que é uma imagem?
 
 Visto que um [container](01_o-que-e-um-container.md) é um processo isolado, de onde ele obtém seus arquivos e configurações? Como você compartilha esses ambientes?
 
@@ -139,7 +139,6 @@ Neste passo a passo, você pesquisou e baixou uma imagem Docker. Além de baixar
 Os seguintes recursos ajudarão você a aprender mais sobre como explorar, encontrar e construir imagens:
 
 *   [Conteúdo confiável do Docker](https://docs.docker.com/docker-hub/image-library/trusted-content/)
-*   [Visão geral do Docker Build](https://docs.docker.com/build/concepts/overview/)
 *   [Docker Hub](https://hub.docker.com)
 
 ## Referências

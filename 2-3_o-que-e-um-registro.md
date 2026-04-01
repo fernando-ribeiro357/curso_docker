@@ -1,6 +1,6 @@
-# O que é um registro (registry)?
+# **Módulo 2.3: Registro de Imagens**
 
-## Explicação
+## O que é um registro (registry)?
 
 Agora que você sabe o que é uma imagem de container e como ela funciona, você pode se perguntar: onde você armazena essas imagens?
 
@@ -12,7 +12,7 @@ Embora o Docker Hub seja uma opção popular, existem muitos outros registros de
 
 ### Registro vs. Repositório
 
-Enquanto trabalha com registros, você pode ouvir os termos _registro_ e _repositório_ como se fossem intercambiáveis. Embora estejam relacionados, não são exatamente a mesma coisa.
+Enquanto trabalha com registros, você pode ouvir os termos *registro* e *repositório* como se fossem intercambiáveis. Embora estejam relacionados, não são exatamente a mesma coisa.
 
 Um **registro** é um local centralizado que armazena e gerencia imagens de container, enquanto um **repositório** é uma coleção de imagens de container relacionadas dentro de um registro. Pense nisso como uma pasta onde você organiza suas imagens com base em projetos. Cada repositório contém uma ou mais imagens de container.
 
@@ -197,6 +197,7 @@ Neste passo a passo, você se inscreveu para uma conta Docker, criou seu primeir
 ## Recursos adicionais
 
 - [Início rápido do Docker Hub](https://docs.docker.com/docker-hub/quickstart/)
+- [Visão geral do Docker Build](https://docs.docker.com/build/concepts/overview/)
 - [Gerenciar repositórios do Docker Hub](https://docs.docker.com/docker-hub/repos/)
 
 ## Referências

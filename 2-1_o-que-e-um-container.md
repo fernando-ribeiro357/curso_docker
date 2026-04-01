@@ -1,6 +1,6 @@
-# O que é um container?
+# **Módulo 2.1: Gerenciamento de Containers**
 
-## Explicação
+## *O que é um container?*
 
 Imagine que você está desenvolvendo um aplicativo web revolucionário que possui três componentes principais: um frontend em React, uma API em Python e um banco de dados PostgreSQL. Se você quisesse trabalhar neste projeto, teria que instalar Node, Python e PostgreSQL.
 

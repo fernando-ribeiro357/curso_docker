@@ -33,13 +33,15 @@ Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado
     *   Inspeção: `docker ps`, `docker inspect`, `docker logs`, `docker exec`.
     *   Limpeza: `docker system prune`.
 2.  **Imagens e Dockerfile**
-    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
-    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
-    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
+    * Pesquise e baixe uma imagem: `docker search`, `docker pull`.
+    * Aprenda sobre a imagem: `docker image ls`, `docker image history`.
 3.  **Registro de Imagens (Registry)**
     * O que é um Registry?
     * Tipos de Registries: públicos (Docker Hub, GitHub Container Registry, Quay.io) ou privados (ex: usando a imagem oficial registry:2, Harbor, Nexus, GitLab Registry).
     * Nomenclatura e Tags: Estrutura do nome da imagem (`[registry-host]/[namespace]/[repository]:[tag]`).
+    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
+    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
+    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
 
 ---
 
