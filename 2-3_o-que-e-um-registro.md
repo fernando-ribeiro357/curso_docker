@@ -1,4 +1,4 @@
-# **Módulo 2.3: Registro de Imagens**
+# Módulo 2.3: Registro de Imagens
 
 ## O que é um registro (registry)?
 

@@ -1,27 +1,18 @@
-Para dominar o Docker desde a teoria até a administração de um cluster Swarm em escala, é fundamental seguir uma progressão lógica: entender o "porquê" antes do "como", dominar o single-node antes de escalar para o multi-node, e finalmente focar em observabilidade e operações.
-
-Abaixo, apresento um **Roteiro de Estudos Estruturado em 6 Módulos**, desenhado para levar você do zero à administração de clusters complexos.
-
----
-
-###  Módulo 1: Fundamentos e Contexto Histórico
+###  Módulo 1: Conhecendo o Docker
 *Objetivo: Entender o problema que o Docker resolve e as tecnologias subjacentes.*
 
-1.  **O Problema da Inconsistência de Ambientes**
-    *   O clássico "funciona na minha máquina".
-    *   Diferenças entre Desenvolvimento, Teste e Produção.
-2.  **Evolução da Virtualização**
-    *   Virtualização Tradicional (Hypervisors Type 1 e Type 2): VMs completas com SO convidado.
-    *   Limitações das VMs: Overhead de recursos, lentidão no boot, consumo de disco.
-3.  **Tecnologias que Permitiram o Docker (Linux Kernel)**
-    *   **Namespaces**: Isolamento de processos, rede, usuários, montagens (PID, NET, UTS, IPC, MNT, USER).
-    *   **Control Groups (cgroups)**: Limitação e contabilização de recursos (CPU, Memória, I/O).
-    *   **Union File Systems (OverlayFS)**: Camadas de imagem e eficiência de armazenamento.
-    *   **Chroot**: Mudança de raiz do sistema de arquivos.
-4.  **Arquitetura do Docker**
-    *   Cliente Docker (CLI) vs. Daemon (`dockerd`).
-    *   Registry (Docker Hub, ECR, GCR, Harbor).
-    *   Imagens vs. Containers.
+1.  **Fundamentos e Contexto Histórico**
+    * O clássico "funciona na minha máquina".
+    * Diferenças entre Desenvolvimento, Teste e Produção.
+    * A Evolução da Virtualização
+    * Limitações das VMs: Overhead de recursos, lentidão no boot, consumo de disco.
+
+2.  **O que é o Docker**
+    * A plataforma Docker
+    * Para que posso usar o Docker?
+    * Arquitetura do Docker
+    * Tecnologias que Permitiram o Docker (Linux Kernel)
+    
 
 ---
 

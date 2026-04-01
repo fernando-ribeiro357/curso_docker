@@ -1,4 +1,4 @@
-# **Módulo 2.2: Imagens e Dockerfile**
+# Módulo 2.2: Imagens e Dockerfile
 
 ## O que é uma imagem?
 
@@ -128,6 +128,8 @@ Siga as instruções para pesquisar e baixar uma imagem Docker usando a CLI para
 
     Esta saída mostra todas as camadas, seus tamanhos e o comando usado para criar a camada.
 
+    ![Camadas da imagem Docker](img/container-layers.webp)
+
     > **Visualizando o comando completo**
     >
     > Se você adicionar a flag `--no-trunc` ao comando, verá o comando completo. Observe que, como a saída está em formato de tabela, comandos mais longos podem tornar a navegação pela saída muito difícil.
@@ -149,4 +151,4 @@ Os seguintes recursos ajudarão você a aprender mais sobre como explorar, encon
 
 Agora que você aprendeu o básico sobre imagens, é hora de aprender sobre a distribuição de imagens através de registros (registries).
 
-[O que é um registro?](03_o-que-e-um-registro.md)
+- [O que é um registro?](03_o-que-e-um-registro.md)

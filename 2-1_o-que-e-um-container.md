@@ -120,4 +120,4 @@ Os links a seguir fornecem orientações adicionais sobre containers:
 
 Agora que você aprendeu o básico de um container Docker, é hora de aprender sobre imagens Docker.
 
-[O que é uma imagem?](02_o-que-e-uma-imagem.md)
+- [O que é uma imagem?](2-2_o-que-e-uma-imagem.md)

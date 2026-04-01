@@ -1,4 +1,4 @@
-# Módulo 1: Fundamentos e Contexto Histórico do Docker
+# Módulo 1.1: Fundamentos e Contexto Histórico do Docker
 
 ## Objetivo
 Compreender profundamente o problema que a tecnologia de containers resolve, a evolução da virtualização que levou ao seu surgimento e as primitivas do kernel Linux que tornam o Docker possível. Este módulo estabelece a base teórica necessária para dominar a arquitetura e operação do Docker.
@@ -24,6 +24,7 @@ Tradicionalmente, cada fase do ciclo de vida do software (Dev, QA/Staging, Prod)
 O Docker resolve isso empacotando a aplicação junto com **todas** as suas dependências em uma unidade padrão (o container), garantindo que o que foi testado seja exatamente o que será executado em produção.
 
 ---
+![Containers Docker vs Máquinas Virtuais](img/container-vs-virtual-machine-what-is-docker.jpg)
 
 ## 2. A Evolução da Virtualização
 
@@ -49,13 +50,23 @@ Embora as VMs ofereçam excelente isolamento de segurança, elas apresentam inef
 
 O Docker não criou novas tecnologias de virtualização do zero; ele orquestrou funcionalidades existentes no kernel Linux para criar uma virtualização leve no nível do sistema operacional (OS-level virtualization).
 
+O Docker é escrito na [linguagem de programação Go](https://golang.org/) e aproveita vários recursos do kernel Linux para fornecer sua funcionalidade.
+
 ### Namespaces (Isolamento)
+Quando você executa um container, o Docker cria um conjunto de namespaces para esse container.
+
 Os **Namespaces** são a característica do kernel que fornece o **isolamento**. Eles fazem com que um processo (e seus filhos) tenha sua própria visão exclusiva de certos aspectos do sistema global. O Docker utiliza vários tipos:
+
 *   **PID Namespace:** Isola a árvore de processos. Dentro do container, o processo principal tem PID 1, sem ver outros processos do host.
+
 *   **NET Namespace:** Isola interfaces de rede, endereços IP, portas e tabelas de roteamento. Cada container tem sua própria pilha de rede.
+
 *   **MNT Namespace:** Isola os pontos de montagem do sistema de arquivos. Permite que o container veja um sistema de arquivos diferente do host.
+
 *   **UTS Namespace:** Isola o hostname e o nome de domínio. O container pode ter seu próprio hostname independente do host.
+
 *   **IPC Namespace:** Isola a comunicação interprocessos (memória compartilhada, filas de mensagens).
+
 *   **USER Namespace:** Mapeia usuários dentro do container para usuários diferentes no host, permitindo que processos rodem como `root` dentro do container, mas como um usuário não privilegiado no host.
 
 ### Control Groups (cgroups) (Limitação de Recursos)
@@ -66,9 +77,12 @@ Enquanto os namespaces isolam a *visão*, os **Control Groups (cgroups)** gerenc
 *   **Dispositivos:** Restringe o acesso a dispositivos específicos.
 
 ### Union File Systems (OverlayFS) (Eficiência de Armazenamento)
-O Docker utiliza sistemas de arquivos em camadas (Union File Systems), sendo o **OverlayFS** o driver padrão moderno.
+O Docker utiliza sistemas de arquivos em camadas (Union File Systems), sendo o **OverlayFS** o driver padrão.
+
 *   **Camadas Imutáveis:** Uma imagem Docker é composta por várias camadas de leitura apenas (read-only). Cada instrução no `Dockerfile` cria uma nova camada.
+
 *   **Copy-on-Write (CoW):** Quando um container é iniciado, uma fina camada gravável (read-write) é adicionada no topo. Se o container precisa modificar um arquivo existente nas camadas inferiores, o sistema copia esse arquivo para a camada superior antes de modificá-lo.
+
 *   **Benefício:** Isso permite compartilhar camadas base entre múltiplas imagens e containers, economizando drasticamente espaço em disco e acelerando downloads (apenas as camadas faltantes são baixadas).
 
 ### Chroot (Mudança de Raiz)
@@ -76,29 +90,9 @@ A chamada de sistema `chroot` muda o diretório raiz aparente (`/`) para um proc
 
 ---
 
-## 4. Arquitetura do Docker
-
-Entender como os componentes do Docker interagem é crucial para administração e troubleshooting.
-
-### Cliente Docker vs. Daemon (`dockerd`)
-O Docker segue uma arquitetura **Cliente-Servidor**:
-*   **Docker Client (CLI):** É a interface de linha de comando (`docker`) que você utiliza. Ele não executa tarefas pesadas diretamente; ele envia comandos (via API REST) para o daemon.
-*   **Docker Daemon (`dockerd`):** É o serviço de longa execução (background) que gerencia objetos Docker (imagens, containers, redes, volumes). Ele escuta solicitações da API e executa as operações reais no kernel (criando namespaces, cgroups, etc.).
-
-> **Fluxo:** Você digita `docker run` -> O CLI envia a requisição para o Daemon -> O Daemon baixa a imagem (se necessário), cria o container usando primitives do kernel e inicia o processo.
-
-### Registry (Registro de Imagens)
-Um Registry é um repositório centralizado para armazenar e distribuir imagens Docker.
-*   **Públicos:** O **Docker Hub** é o registro público padrão, hospedando milhares de imagens oficiais e comunitárias.
-*   **Privados/Cloud:** Serviços como **Amazon ECR**, **Google GCR/Artifact Registry** e **Azure ACR** oferecem registros privados escaláveis integrados às nuvens respectivas.
-*   **Self-Hosted:** Soluções como **Harbor**, **Nexus** ou a imagem oficial `registry:2` permitem que organizações hospedem seus próprios registros dentro de sua infraestrutura para controle total e segurança.
-
-### Imagens vs. Containers
-É fundamental distinguir estes dois conceitos:
-*   **Imagem (Image):** É o modelo estático, imutável e somente leitura. Contém o código da aplicação, runtime, bibliotecas e configurações necessárias. Pense nela como a "classe" em programação orientada a objetos ou o "molde" de um bolo.
-*   **Container:** É a instância executável de uma imagem. É dinâmico, possui uma camada gravável e está em execução (ou parado). Pense nele como o "objeto" instanciado ou o "bolo" assado. Você pode ter múltiplos containers rodando a partir da mesma imagem simultaneamente.
-
----
-
 ### Conclusão do Módulo
 O Docker transformou o desenvolvimento de software ao substituir a virtualização pesada de hardware pela virtualização leve de sistema operacional, aproveitando namespaces e cgroups do Linux. Ao padronizar a entrega de software em unidades portáteis (containers) derivadas de imagens imutáveis, ele eliminou a inconsistência de ambientes, permitindo fluxos de trabalho de CI/CD robustos e arquiteturas de microserviços escaláveis.
+
+### Próximos Passos
+
+- [O que é o Docker](1-2_o-que-e-o-docker.md)
