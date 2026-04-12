@@ -151,4 +151,5 @@ Os seguintes recursos ajudarão você a aprender mais sobre como explorar, encon
 
 Agora que você aprendeu o básico sobre imagens, é hora de aprender sobre a distribuição de imagens através de registros (registries).
 
-- [O que é um registro?](03_o-que-e-um-registro.md)
+- [O que é um registro?](./03_o-que-e-um-registro.md)
+
