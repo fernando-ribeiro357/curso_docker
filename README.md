@@ -24,9 +24,10 @@
     *   Inspeção: `docker ps`, `docker inspect`, `docker logs`, `docker exec`.
     *   Limpeza: `docker system prune`.
 2.  **Imagens e Dockerfile**
+    * O que é uma imagem?
     * Pesquise e baixe uma imagem: `docker search`, `docker pull`.
     * Aprenda sobre a imagem: `docker image ls`, `docker image history`.
-3.  **Registro de Imagens (Registry)**
+4.  **Registro de Imagens (Registry)**
     * O que é um Registry?
     * Tipos de Registries: públicos (Docker Hub, GitHub Container Registry, Quay.io) ou privados (ex: usando a imagem oficial registry:2, Harbor, Nexus, GitLab Registry).
     * Nomenclatura e Tags: Estrutura do nome da imagem (`[registry-host]/[namespace]/[repository]:[tag]`).
