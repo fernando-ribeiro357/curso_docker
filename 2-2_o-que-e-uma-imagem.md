@@ -22,11 +22,11 @@ O [Docker Hub](https://hub.docker.com) é o mercado global padrão para armazena
 O Docker Hub oferece uma variedade de imagens suportadas e endossadas pelo Docker, conhecidas como **Conteúdo Confiável do Docker (Docker Trusted Content)**. Elas fornecem serviços totalmente gerenciados ou excelentes pontos de partida para suas próprias imagens. Estas incluem:
 
 *   [**Imagens Oficiais do Docker**](https://hub.docker.com/search?badges=official) – um conjunto curado de repositórios Docker, servem como ponto de partida para a maioria dos usuários e estão entre as mais seguras no Docker Hub.
-*   [**Imagens Endurecidas do Docker (Hardened Images)**](https://hub.docker.com/hardened-images/catalog) – imagens mínimas, seguras e prontas para produção com quase zero CVEs (vulnerabilidades comuns e expostas), projetadas para reduzir a superfície de ataque e simplificar a conformidade. Gratuitas e de código aberto sob a licença Apache 2.0.
+*   [**Hardened Images**](https://hub.docker.com/hardened-images/catalog) – imagens mínimas, seguras e prontas para produção com quase zero CVEs (vulnerabilidades comuns e expostas), projetadas para reduzir a superfície de ataque e simplificar a conformidade. Gratuitas e de código aberto sob a licença Apache 2.0.
 *   [**Publicadores Verificados do Docker**](https://hub.docker.com/search?badges=verified_publisher) – imagens de alta qualidade de publicadores comerciais verificados pelo Docker.
 *   [**Código Aberto Patrocinado pelo Docker**](https://hub.docker.com/search?badges=open_source) – imagens publicadas e mantidas por projetos de código aberto patrocinados pelo Docker através do programa de código aberto da empresa.
 
-Por exemplo, [Redis](https://hub.docker.com/_/redis) e [Memcached](https://hub.docker.com/_/memcached) são algumas Imagens Oficiais do Docker populares e prontas para uso. Você pode baixar essas imagens e ter esses serviços instalados e rodando em questão de segundos. Existem também imagens base, como a imagem Docker do [Node.js](https://hub.docker.com/_/node), que você pode usar como ponto de partida e adicionar seus próprios arquivos e configurações. Para cargas de trabalho de produção que exigem segurança aprimorada, as Imagens Endurecidas do Docker oferecem variantes mínimas de imagens populares como Node.js, Python e Go.
+Por exemplo, [Redis](https://hub.docker.com/_/redis) e [Memcached](https://hub.docker.com/_/memcached) são algumas Imagens Oficiais do Docker populares e prontas para uso. Você pode baixar essas imagens e ter esses serviços instalados e rodando em questão de segundos. Existem também imagens base, como a imagem Docker do [Node.js](https://hub.docker.com/_/node), que você pode usar como ponto de partida e adicionar seus próprios arquivos e configurações. Para cargas de trabalho de produção que exigem segurança aprimorada, as Imagens Endurecidas do Docker (Hardened Images) oferecem variantes mínimas de imagens populares como Node.js, Python e Go.
 
 ## Experimente
 
@@ -36,7 +36,7 @@ Siga as instruções para pesquisar e baixar uma imagem Docker usando a CLI para
 
 ### Pesquise e baixe uma imagem
 
-1.  Abra um terminal e pesquise por imagens usando o comando [`docker search`](/reference/cli/docker/search/):
+1.  Abra um terminal e pesquise por imagens usando o comando [`docker search`](https://docs.docker.com/reference/cli/docker/search/):
 
     ```console
     docker search docker/welcome-to-docker
@@ -51,7 +51,7 @@ Siga as instruções para pesquisar e baixar uma imagem Docker usando a CLI para
 
     Esta saída mostra informações sobre imagens relevantes disponíveis no Docker Hub.
 
-2.  Baixe a imagem usando o comando [`docker pull`](/reference/cli/docker/image/pull/):
+2.  Baixe a imagem usando o comando [`docker pull`](https://docs.docker.com/reference/cli/docker/image/pull/):
 
     ```console
     docker pull docker/welcome-to-docker
@@ -79,7 +79,7 @@ Siga as instruções para pesquisar e baixar uma imagem Docker usando a CLI para
 
 ### Aprenda sobre a imagem
 
-1.  Liste suas imagens baixadas usando o comando [`docker image ls`](/reference/cli/docker/image/ls/):
+1.  Liste suas imagens baixadas usando o comando [`docker image ls`](https://docs.docker.com/reference/cli/docker/image/ls/):
 
     ```console
     docker image ls
