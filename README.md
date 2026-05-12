@@ -27,13 +27,16 @@
     * O que é uma imagem?
     * Pesquise e baixe uma imagem: `docker search`, `docker pull`.
     * Aprenda sobre a imagem: `docker image ls`, `docker image history`.
-4.  **Registro de Imagens (Registry)**
+3.  **Registro de Imagens (Registry)**
     * O que é um Registry?
     * Tipos de Registries: públicos (Docker Hub, GitHub Container Registry, Quay.io) ou privados (ex: usando a imagem oficial registry:2, Harbor, Nexus, GitLab Registry).
     * Nomenclatura e Tags: Estrutura do nome da imagem (`[registry-host]/[namespace]/[repository]:[tag]`).
-    *   Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
-    *   Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
-    *   Comandos: `docker build`, `docker tag`, `docker push/pull`.
+    * Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
+    * Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
+    * Comandos: `docker build`, `docker tag`, `docker push/pull`.
+4.  **Docker Compose**
+    * O que é Docker Compose: explicação; Dockerfile versus arquivo Compose.
+    * Experimente: inicie uma aplicação; desmonte a aplicação.
 
 ---
 

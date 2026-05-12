@@ -208,4 +208,4 @@ Neste passo a passo, você se inscreveu para uma conta Docker, criou seu primeir
 
 Agora que você entende o básico de containers e imagens, está pronto para aprender sobre o Docker Compose.
 
-[O que é Docker Compose?](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry/what-is-Docker-Compose)
+[O que é Docker Compose?](2-4_o-que-e-docker-composer.md)
