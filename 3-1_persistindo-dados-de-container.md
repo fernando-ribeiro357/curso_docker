@@ -143,7 +143,7 @@ Existem alguns métodos para remover volumes, incluindo os seguintes:
 
 Os seguintes recursos ajudarão você a aprender mais sobre volumes:
 
-- [Armazenamento: storage drivers e volumes](_armazenamento.md)
+- [Armazenamento (storage drivers e volumes)](_armazenamento.md)
 - [Gerenciar dados no Docker](https://docs.docker.com/engine/storage)
 - [Volumes](https://docs.docker.com/engine/storage/volumes)
 - [Montagens de volume](https://docs.docker.com/engine/containers/run/#volume-mounts)

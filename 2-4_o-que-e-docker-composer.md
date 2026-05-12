@@ -126,4 +126,4 @@ Esta página foi uma breve introdução ao Compose. Nos recursos a seguir, você
 
 ## Próximos Passos
 
-- [Armazenamento (storage drivers e volumes)](3-1_armazenamento.md)
+- [Persistindo dados de container](3-1_persistindo-dados-de-container.md)
