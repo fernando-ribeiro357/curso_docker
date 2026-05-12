@@ -1,6 +1,6 @@
-# O que é Docker Compose?
+# Módulo 2.4: Docker Compose?
 
-## Explicação
+## O que é Docker Compose?
 
 Se você tem seguido os guias até agora, tem trabalhado com aplicações de container único. Mas, agora você quer fazer algo mais complicado — executar bancos de dados, filas de mensagens, caches ou uma variedade de outros serviços. Você instala tudo em um único container? Executa múltiplos containers? Se executar múltiplos, como conecta todos eles?
 
@@ -126,4 +126,4 @@ Esta página foi uma breve introdução ao Compose. Nos recursos a seguir, você
 
 ## Próximos Passos
 
-- Módulo 3: Persistência, Configuração e Segurança Básica
+- [Armazenamento (storage drivers e volumes)](3-1_armazenamento.md)
