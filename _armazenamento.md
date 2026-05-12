@@ -1,4 +1,4 @@
-# Módulo 3.1: Armazenamento (Storage Drivers & Volumes)
+# Armazenamento (Storage Drivers & Volumes)
 
 Por padrão, os containers são **efêmeros**. Quando um container é removido, todos os dados escritos em seu sistema de arquivos desaparecem. Para aplicações que precisam persistir dados (como bancos de dados, logs ou uploads de usuários), o Docker oferece mecanismos robustos de armazenamento baseados em *Storage Drivers*.
 
@@ -95,7 +95,3 @@ _Este comando sobe um container Alpine temporário, monta o volume de dados e um
 *   [Usando volumes](https://docs.docker.com/storage/volumes/)
 *   [Usando bind mounts](https://docs.docker.com/storage/bind-mounts/)
 *   [Usando tmpfs](https://docs.docker.com/storage/tmpfs/)
-
-## Próximos Passos
-
-- Rede em single node
