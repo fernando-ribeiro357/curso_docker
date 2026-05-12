@@ -12,7 +12,7 @@ Embora o Docker Hub seja uma opção popular, existem muitos outros registros de
 
 ### Registro vs. Repositório
 
-Enquanto trabalha com registros, você pode ouvir os termos *registro* e *repositório* como se fossem intercambiáveis. Embora estejam relacionados, não são exatamente a mesma coisa.
+Enquanto trabalha com registros, você pode ouvir os termos _registro_ e _repositório_ como se fossem intercambiáveis. Embora estejam relacionados, não são exatamente a mesma coisa.
 
 Um **registro** é um local centralizado que armazena e gerencia imagens de container, enquanto um **repositório** é uma coleção de imagens de container relacionadas dentro de um registro. Pense nisso como uma pasta onde você organiza suas imagens com base em projetos. Cada repositório contém uma ou mais imagens de container.
 
@@ -176,13 +176,13 @@ Não se preocupe com os detalhes específicos do Dockerfile, pois você aprender
 
     Você pode verificar se o container está funcionando acessando [http://localhost:8080](http://localhost:8080) com seu navegador.
 
-6. Use o comando [`docker tag`](/reference/cli/docker/image/tag/) para marcar (taggear) a imagem Docker. As tags do Docker permitem rotular e versionar suas imagens.
+6. Use o comando [`docker tag`](https://docs.docker.com/reference/cli/docker/image/tag/) para marcar (taggear) a imagem Docker. As tags do Docker permitem rotular e versionar suas imagens.
 
     ```console 
     docker tag <SEU_NOME_DE_USUARIO_DOCKER>/docker-quickstart <SEU_NOME_DE_USUARIO_DOCKER>/docker-quickstart:1.0 
     ```
 
-7. Finalmente, é hora de enviar a imagem recém-construída para o seu repositório do Docker Hub usando o comando [`docker push`](/reference/cli/docker/image/push/):
+7. Finalmente, é hora de enviar a imagem recém-construída para o seu repositório do Docker Hub usando o comando [`docker push`](https://docs.docker.com/reference/cli/docker/image/push/):
 
     ```console 
     docker push <SEU_NOME_DE_USUARIO_DOCKER>/docker-quickstart:1.0
