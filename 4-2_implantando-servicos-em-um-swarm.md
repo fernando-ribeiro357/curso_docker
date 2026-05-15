@@ -1,4 +1,4 @@
-# Implantar serviços em um swarm
+# Módulo 4.2: Implantando serviços em um Swarm
 
 Os serviços do Swarm usam um modelo declarativo, o que significa que você define o estado desejado do serviço e confia no Docker para manter esse estado. O estado inclui informações como (mas não se limitando a):
 
