@@ -1,13 +1,13 @@
 ###  Módulo 1: Conhecendo o Docker
 *Objetivo: Entender o problema que o Docker resolve e as tecnologias subjacentes.*
 
-1.  **Fundamentos e Contexto Histórico**
+1.  [**Fundamentos e Contexto Histórico**](1-1_fundamentos-e-contexto-historico-do-docker.md)
     * O clássico "funciona na minha máquina".
     * Diferenças entre Desenvolvimento, Teste e Produção.
     * A Evolução da Virtualização
     * Limitações das VMs: Overhead de recursos, lentidão no boot, consumo de disco.
 
-2.  **O que é o Docker**
+2.  [**O que é o Docker**](1-2_o-que-e-o-docker.md)
     * A plataforma Docker
     * Para que posso usar o Docker?
     * Arquitetura do Docker
@@ -19,22 +19,22 @@
 ### Módulo 2: Operações Básicas e Ciclo de Vida
 *Objetivo: Construir, executar e gerenciar containers individuais.*
 
-1.  **Gerenciamento de Containers**
+1.  [**Gerenciamento de Containers**](2-1_o-que-e-um-container.md)
     *   Ciclo de vida: `run`, `start`, `stop`, `restart`, `rm`.
     *   Inspeção: `docker ps`, `docker inspect`, `docker logs`, `docker exec`.
     *   Limpeza: `docker system prune`.
-2.  **Imagens e Dockerfile**
+2.  [**Imagens e Dockerfile**](2-2_o-que-e-uma-imagem.md)
     * O que é uma imagem?
     * Pesquise e baixe uma imagem: `docker search`, `docker pull`.
     * Aprenda sobre a imagem: `docker image ls`, `docker image history`.
-3.  **Registro de Imagens (Registry)**
+3.  [**Registro de Imagens (Registry)**](2-3_o-que-e-um-registro.md)
     * O que é um Registry?
     * Tipos de Registries: públicos (Docker Hub, GitHub Container Registry, Quay.io) ou privados (ex: usando a imagem oficial registry:2, Harbor, Nexus, GitLab Registry).
     * Nomenclatura e Tags: Estrutura do nome da imagem (`[registry-host]/[namespace]/[repository]:[tag]`).
     * Sintaxe básica do `Dockerfile` (`FROM`, `RUN`, `COPY`, `CMD`, `ENTRYPOINT`, `ENV`, `EXPOSE`).
     * Melhores práticas: Camadas (Layers), cache de build, redução de tamanho de imagem (Multi-stage builds).
     * Comandos: `docker build`, `docker tag`, `docker push/pull`.
-4.  **Docker Compose**
+4.  [**Docker Compose**](2-4_o-que-e-docker-composer.md)
     * O que é Docker Compose: explicação; Dockerfile versus arquivo Compose.
     * Experimente: inicie uma aplicação; desmonte a aplicação.
 
@@ -43,19 +43,22 @@
 ### Módulo 3: Persistência, Configuração e Segurança Básica
 *Objetivo: Gerenciar dados stateful e segredos fora do código da aplicação.*
 
-1.  **Armazenamento (Storage Drivers & Volumes)**
-    *   Tipos de montagem:
-        *   **Volumes**: Gerenciados pelo Docker (recomendado para produção).
-        *   **Bind Mounts**: Diretórios específicos do host (útil para dev).
-        *   **tmpfs**: Armazenamento em memória RAM.
-    *   Comandos: `docker volume create`, `ls`, `inspect`, `rm`.
-    *   Estratégia de backup de volumes.
-2.  **Rede em Single Node**
+1.  [**Persistindo dados de container**](3-1_persistindo-dados-de-container.md)
+    *   Volumes de container:
+        *   Gerenciando volumes
+        *   Usando volumes
+        *   Visualizando o conteúdo do volume
+        *   Removendo volumes
+    *   [Armazenamento (Storage Drivers & Volumes)](_armazenamento.md)
+        *   Tipos de montagem:volumes, bind mount e tmpfs.
+        *   Comandos: `docker volume create`, `ls`, `inspect`, `rm`.
+        *   Estratégia de backup de volumes.
+2.  [**Rede em Single Node**](3-2_rede-single-node.md)
     *   Drivers de rede padrão: `bridge`, `host`, `none`.
     *   Criação de redes customizadas (`docker network create`).
     *   DNS interno do Docker (resolução de nomes entre containers na mesma rede).
     *   Isolamento de rede e exposição seletiva.
-3.  **Configs e Secrets (Introdução)**
+3.  [**Configs e Secrets (Introdução)**](3-3_configs-e-secrets.md)
     *   Por que não usar variáveis de ambiente para tudo?
     *   Conceito de **Docker Configs** (arquivos de configuração não sensíveis).
     *   Conceito de **Docker Secrets** (senhas, chaves API, certificados).
