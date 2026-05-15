@@ -66,4 +66,4 @@ docker run -d --name web -p 8080:80 --network minha-rede-app nginx
 *   [Configuração de firewalls e packet filtering](https://docs.docker.com/engine/network/packet-filtering-firewalls/)
 
 ## Próximos Passos
-*   3.3 Configs e Secrets
+*   [Configs e Secrets](3-3_configs-e-secrets.md)
