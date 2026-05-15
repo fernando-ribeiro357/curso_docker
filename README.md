@@ -73,7 +73,7 @@
     *   Arquitetura: Manager Nodes vs. Worker Nodes.
     *   Raft Consensus Algorithm (tolerância a falhas dos managers).
     *   Inicialização: `docker swarm init` e `docker swarm join`.
-2.  **Serviços (Services) vs. Containers**
+2.  [**Implantando Serviços em um Swarm**](4-2_implantando-servicos-em-um-swarm.md)
     *   Modelo declarativo: Definir o estado desejado (`replicas`, `image`, `ports`).
     *   Comandos: `docker service create`, `ls`, `ps`, `scale`, `update`, `rollback`.
     *   Estratégias de atualização: `rolling update` (atualização contínua sem downtime) e `global` (um container por nó).
