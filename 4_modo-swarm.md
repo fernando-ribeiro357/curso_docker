@@ -61,5 +61,5 @@ No momento do rollout, você pode aplicar atualizações de serviço aos nós in
 
 ## Próximos passos?
 
-* Aprenda os [conceitos-chave](https://docs.docker.com/engine/swarm/key-concepts/) do modo Swarm.
+* Aprenda os [conceitos-chave](4-1_conceitos-de-cluster-swarm.md) do modo Swarm.
 * Comece com o [tutorial do modo Swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/).
