@@ -78,8 +78,11 @@
     *   Comandos: `docker service create`, `ls`, `ps`, `scale`, `update`, `rollback`.
     *   Estratégias de atualização: `rolling update` (atualização contínua sem downtime) e `global` (um container por nó).
 3.  [**Implantando uma _stack_ em um Swarm**](4-3_implantando-uma-stack-em-um-swarm.md)
-
-
+    * Configurar um registro Docker
+    * Criar a aplicação de exemplo
+    * Testar a aplicação com Compose
+    * Enviar a imagem gerada para o registro
+    * Implantar a _stack_ no swarm
 4.  **Rede no Swarm (Overlay Network)**
     *   Criando redes Overlay para comunicação entre nós diferentes.
     *   Balanceamento de carga interno (Routing Mesh): Como o tráfego chega a qualquer nó e é roteado para o container correto, mesmo que ele esteja em outro nó.
