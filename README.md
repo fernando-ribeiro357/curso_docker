@@ -77,15 +77,18 @@
     *   Modelo declarativo: Definir o estado desejado (`replicas`, `image`, `ports`).
     *   Comandos: `docker service create`, `ls`, `ps`, `scale`, `update`, `rollback`.
     *   Estratégias de atualização: `rolling update` (atualização contínua sem downtime) e `global` (um container por nó).
-3.  **Rede no Swarm (Overlay Network)**
+3.  [**Implantando uma _stack_ em um Swarm**](4-3_implantando-uma-stack-em-um-swarm.md)
+
+
+4.  **Rede no Swarm (Overlay Network)**
     *   Criando redes Overlay para comunicação entre nós diferentes.
     *   Balanceamento de carga interno (Routing Mesh): Como o tráfego chega a qualquer nó e é roteado para o container correto, mesmo que ele esteja em outro nó.
     *   Publicação de portas no modo `host` vs. modo `ingress`.
-4.  **Gestão Avançada de Configs e Secrets no Swarm**
+5.  **Gestão Avançada de Configs e Secrets no Swarm**
     *   Criando e atualizando secrets/configs no nível do cluster.
     *   Montagem segura em serviços (arquivos temporários em `/run/secrets`).
     *   Rotação de segredos sem reiniciar o serviço manualmente (atualização rolling).
-5.  **Escalonamento e Restrições**
+6.  **Escalonamento e Restrições**
     *   Labels e Constraints: Rodar serviços apenas em nós específicos (ex: `node.role == manager` ou `disktype == ssd`).
     *   Resource Limits no Swarm: Definir CPU/Memória máxima e garantida por serviço.
     *   Placement Preferences: Preferências de espalhamento (spread) ou concentração (binpack).
