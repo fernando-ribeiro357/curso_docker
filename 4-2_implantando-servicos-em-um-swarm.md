@@ -9,9 +9,9 @@ Os serviços do Swarm usam um modelo declarativo, o que significa que você defi
 - O comportamento específico que ocorre quando o serviço é reiniciado (como se uma reinicialização contínua/rolling restart é usada)
 - Características dos nós onde o serviço pode ser executado (como restrições de recursos e preferências de posicionamento)
 
-Para uma visão geral do modo Swarm, consulte [Conceitos-chave do modo Swarm](/engine/swarm/services/key-concepts/).
+Para uma visão geral do modo Swarm, consulte [Conceitos-chave do modo Swarm](4-1_conceitos-de-cluster-swarm.md).
 Para uma visão geral de como os serviços funcionam, consulte
-[Como os serviços funcionam](/engine/swarm/services/how-swarm-mode-works/services/).
+[Como os serviços funcionam](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/).
 
 ## Criar um serviço
 
@@ -31,7 +31,7 @@ a3iixnklxuem        quizzical_lamarr    replicated          1/1                 
 ```
 
 Serviços criados nem sempre são executados imediatamente. Um serviço pode estar em estado pendente se sua imagem não estiver disponível, se nenhum nó atender aos requisitos configurados para o serviço ou por outras razões. Consulte
-[Serviços pendentes](/engine/swarm/services/how-swarm-mode-works/services/#pending-services) para mais informações.
+[Serviços pendentes](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#pending-services) para mais informações.
 
 Para fornecer um nome ao seu serviço, use a flag `--name`:
 
@@ -109,8 +109,8 @@ $ docker service remove my_web
 As seções a seguir fornecem detalhes sobre a configuração do serviço. Este tópico não cobre todas as flags ou cenários. Em quase todos os casos em que você pode definir uma configuração na criação do serviço, você também pode atualizar a configuração de um serviço existente de maneira semelhante.
 
 Consulte as referências de linha de comando para
-[`docker service create`](/reference/cli/docker/service/create/) e
-[`docker service update`](/reference/cli/docker/service/update/), ou execute um desses comandos com a flag `--help`.
+[`docker service create`](https://docs.docker.com/reference/cli/docker/service/create/) e
+[`docker service update`](https://docs.docker.com/reference/cli/docker/service/update/), ou execute um desses comandos com a flag `--help`.
 
 ### Configurar o ambiente de execução
 
@@ -145,7 +145,7 @@ Quando você cria um serviço sem especificar detalhes sobre a versão da imagem
 Uma versão de imagem pode ser expressa de várias maneiras:
 
 - Se você especificar uma tag, o gerenciador (ou o cliente Docker, se você usar
-  [confiança de conteúdo](/engine/security/trust/)) resolve essa tag para um digest (hash).
+  [confiança de conteúdo](https://docs.docker.com/engine/security/trust/)) resolve essa tag para um digest (hash).
   Quando a solicitação para criar uma tarefa de container é recebida em um nó worker, o nó worker vê apenas o digest, não a tag.
 
   ```console
@@ -178,7 +178,7 @@ Quando você cria um serviço, a tag da imagem é resolvida para o digest espec�
 
 > [!NOTE]
 >
-> Se a [confiança de conteúdo](/engine/security/trust/) estiver habilitada, o cliente realmente resolve a tag da imagem para um digest antes de contatar o gerenciador do swarm, para verificar se a imagem está assinada.
+> Se a [confiança de conteúdo](https://docs.docker.com/engine/security/trust/) estiver habilitada, o cliente realmente resolve a tag da imagem para um digest antes de contatar o gerenciador do swarm, para verificar se a imagem está assinada.
 > Assim, se você usar confiança de conteúdo, o gerenciador do swarm recebe a solicitação já resolvida. Neste caso, se o cliente não puder resolver a imagem para um digest, a solicitação falhará.
 
 Se o gerenciador não puder resolver a tag para um digest, cada nó worker é responsável por resolver a tag para um digest, e nós diferentes podem usar versões diferentes da imagem. Se isso acontecer, um aviso como o seguinte será registrado, substituindo os espaços reservados por informações reais.
@@ -209,7 +209,7 @@ Quando você executa `service update` com a flag `--image`, o gerenciador do swa
 
 > [!NOTE]
 >
-> Se você usar [confiança de conteúdo](/engine/security/trust/), o cliente Docker resolve a imagem e o gerenciador do swarm recebe a imagem e o digest, em vez de uma tag.
+> Se você usar [confiança de conteúdo](https://docs.docker.com/engine/security/trust/), o cliente Docker resolve a imagem e o gerenciador do swarm recebe a imagem e o digest, em vez de uma tag.
 
 Geralmente, o gerenciador pode resolver a tag para um novo digest e o serviço é atualizado, reimplantando cada tarefa para usar a nova imagem. Se o gerenciador não conseguir resolver a tag ou algum outro problema ocorrer, as próximas duas seções descrevem o que esperar.
 
@@ -254,7 +254,7 @@ Continue lendo para mais informações e casos de uso para cada um desses métod
 #### Publicar as portas de um serviço usando a malha de roteamento
 
 Para publicar as portas de um serviço externamente ao swarm, use a flag `--publish <PORTA-PUBLICADA>:<PORTA-DO-SERVIÇO>`. O swarm torna o serviço acessível na porta publicada em cada nó do swarm. Se um host externo se conectar a essa porta em qualquer nó do swarm, a malha de roteamento o encaminhará para uma tarefa. O host externo não precisa conhecer os endereços IP ou as portas usadas internamente pelas tarefas do serviço para interagir com o serviço. Quando um usuário ou processo se conecta a um serviço, qualquer nó worker executando uma tarefa do serviço pode responder. Para mais detalhes sobre o networking de serviços swarm, consulte
-[Gerenciar redes de serviços swarm](/engine/swarm/services/networking/).
+[Gerenciar redes de serviços swarm](https://docs.docker.com/engine/swarm/services/networking/).
 
 ##### Exemplo: Executar um serviço Nginx de três tarefas em um swarm de 10 nós
 
@@ -351,13 +351,13 @@ $ docker service update --network-rm my-network my-web
 ```
 
 Para mais informações sobre redes overlay e descoberta de serviços, consulte
-[Anexar serviços a uma rede overlay](/engine/swarm/services/networking/) e
+[Anexar serviços a uma rede overlay](https://docs.docker.com/engine/swarm/services/networking/) e
 [Modelo de segurança de rede overlay do modo swarm Docker](/engine/network/drivers/overlay/).
 
 ### Conceder acesso a segredos a um serviço
 
 Para criar um serviço com acesso a segredos gerenciados pelo Docker, use a flag `--secret`. Para mais informações, consulte
-[Gerenciar strings sensíveis (segredos) para serviços Docker](/engine/swarm/services/secrets/)
+[Gerenciar strings sensíveis (segredos) para serviços Docker](https://docs.docker.com/engine/swarm/services/secrets/)
 
 ### Controlar o posicionamento do serviço
 
@@ -400,7 +400,7 @@ $ docker service create \
 ```
 
 As restrições de serviço permitem definir critérios para um nó atender antes que o agendador implante um serviço no nó. Você pode aplicar restrições ao serviço com base em atributos e metadados do nó ou metadados do engine. Para mais informações sobre restrições, consulte a
-[referência CLI](/reference/cli/docker/service/create/) do `docker service create`.
+[referência CLI](https://docs.docker.com/reference/cli/docker/service/create/) do `docker service create`.
 
 #### Reservar memória ou CPUs para um serviço
 
@@ -409,14 +409,14 @@ Para reservar uma determinada quantidade de memória ou número de CPUs para um 
 ##### Exceções de Falta de Memória (OOME)
 
 Se seu serviço tentar usar mais memória do que o nó do swarm tem disponível, você pode experimentar uma Exceção de Falta de Memória (OOME) e um container, ou o daemon Docker, pode ser morto pelo OOM killer do kernel. Para evitar que isso aconteça, certifique-se de que sua aplicação seja executada em hosts com memória adequada e consulte
-[Entender os riscos de ficar sem memória](/engine/containers/resource_constraints/#understand-the-risks-of-running-out-of-memory).
+[Entender os riscos de ficar sem memória](https://docs.docker.com/engine/containers/resource_constraints/#understand-the-risks-of-running-out-of-memory).
 
 Os serviços Swarm permitem usar restrições de recursos, preferências de posicionamento e rótulos para garantir que seu serviço seja implantado nos nós do swarm apropriados.
 
 #### Restrições de posicionamento
 
 Use restrições de posicionamento para controlar os nós aos quais um serviço pode ser atribuído. No exemplo a seguir, o serviço é executado apenas em nós com o
-[rótulo](/engine/swarm/services/manage-nodes/#add-or-remove-label-metadata) `region` definido como `east`. Se nenhum nó com o rótulo apropriado estiver disponível, as tarefas aguardarão em `Pending` até que se tornem disponíveis. A flag `--constraint` usa um operador de igualdade (`==` ou `!=`). Para serviços replicados, é possível que todos os serviços sejam executados no mesmo nó, ou que cada nó execute apenas uma réplica, ou que alguns nós não executem nenhuma réplica. Para serviços globais, o serviço é executado em cada nó que atenda à restrição de posicionamento e a quaisquer [requisitos de recursos](#reservar-memória-ou-cpus-para-um-serviço).
+[rótulo](https://docs.docker.com/engine/swarm/services/manage-nodes/#add-or-remove-label-metadata) `region` definido como `east`. Se nenhum nó com o rótulo apropriado estiver disponível, as tarefas aguardarão em `Pending` até que se tornem disponíveis. A flag `--constraint` usa um operador de igualdade (`==` ou `!=`). Para serviços replicados, é possível que todos os serviços sejam executados no mesmo nó, ou que cada nó execute apenas uma réplica, ou que alguns nós não executem nenhuma réplica. Para serviços globais, o serviço é executado em cada nó que atenda à restrição de posicionamento e a quaisquer [requisitos de recursos](#reservar-memória-ou-cpus-para-um-serviço).
 
 ```console
 $ docker service create \
@@ -442,7 +442,7 @@ $ docker service create \
 Você também pode usar restrições de posicionamento em conjunto com preferências de posicionamento e restrições de CPU/memória. Tenha cuidado para não usar configurações que não possam ser cumpridas.
 
 Para mais informações sobre restrições, consulte a
-[referência CLI](/reference/cli/docker/service/create/) do `docker service create`.
+[referência CLI](https://docs.docker.com/reference/cli/docker/service/create/) do `docker service create`.
 
 #### Preferências de posicionamento
 
@@ -483,7 +483,7 @@ Você também pode usar preferências de posicionamento em conjunto com restriç
 
 Este diagrama ilustra como as preferências de posicionamento funcionam:
 
-![Como as preferências de posicionamento funcionam](/engine/swarm/services/images/placement_prefs.png)
+![Como as preferências de posicionamento funcionam](https://docs.docker.com/engine/swarm/services/images/placement_prefs.png)
 
 Ao atualizar um serviço com `docker service update`, `--placement-pref-add` anexa uma nova preferência de posicionamento após todas as preferências de posicionamento existentes. `--placement-pref-rm` remove uma preferência de posicionamento existente que corresponda ao argumento.
 
@@ -581,7 +581,7 @@ $ docker service create \
   <IMAGEM>
 ```
 
-Para mais informações sobre como criar volumes de dados e o uso de drivers de volume, consulte [Usar volumes](/engine/storage/volumes/).
+Para mais informações sobre como criar volumes de dados e o uso de drivers de volume, consulte [Usar volumes](https://docs.docker.com/engine/storage/volumes/).
 
 #### Bind mounts
 
@@ -664,6 +664,6 @@ $ docker inspect --format="{{.Config.Hostname}}" hosttempl.1.wo41w8hg8qanxwjwsg4
 
 ## Saiba Mais
 
-* [Guia de administração do Swarm](/engine/swarm/services/admin_guide/)
-* [Referência de linha de comando do Docker Engine](/reference/cli/docker/)
-* [Tutorial do modo Swarm](/engine/swarm/services/swarm-tutorial/)
+* [Guia de administração do Swarm](https://docs.docker.com/engine/swarm/services/admin_guide/)
+* [Referência de linha de comando do Docker Engine](https://docs.docker.com/reference/cli/docker/)
+* [Tutorial do modo Swarm](https://docs.docker.com/engine/swarm/services/swarm-tutorial/)
