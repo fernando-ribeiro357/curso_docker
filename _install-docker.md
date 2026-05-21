@@ -72,8 +72,8 @@ Antes de instalar o Docker Engine pela primeira vez em uma nova máquina host, v
 
 1. Configure o repositório `apt` do Docker.
 
-```
-\# Adicione a chave GPG oficial do Docker:  
+```console
+# Adicione a chave GPG oficial do Docker:  
 sudo apt update  
 sudo apt install ca-certificates curl  
 sudo install -m 0755 -d /etc/apt/keyrings  
@@ -81,10 +81,10 @@ sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc  
   
 \# Adicione o repositório às fontes do Apt:  
-sudo tee /etc/apt/sources.list.d/docker.sources \<\<EOF  
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF  
 Types: deb  
 URIs: https://download.docker.com/linux/debian  
-Suites: $(. /etc/os-release && echo "$VERSION\_CODENAME")  
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")  
 Components: stable  
 Architectures: $(dpkg --print-architecture)  
 Signed-By: /etc/apt/keyrings/docker.asc  
@@ -97,8 +97,8 @@ sudo apt update
 
 > Se você usar uma distribuição derivada, como o Kali Linux, talvez precise substituir a parte deste comando que deve imprimir o codinome da versão:
 
-```
-$(. /etc/os-release && echo "$VERSION\_CODENAME")
+```console
+$(. /etc/os-release && echo "$VERSION_CODENAME")
 ```
 
 Substitua esta parte pelo codinome da versão correspondente do Debian, como `bookworm`.
@@ -109,7 +109,7 @@ Substitua esta parte pelo codinome da versão correspondente do Debian, como `bo
 
 Para instalar a versão mais recente, execute:
 
-```
+```console
 $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
@@ -117,7 +117,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 
 Para instalar uma versão específica do Docker Engine, comece listando as versões disponíveis no repositório:
 
-```
+```console
 $ apt list --all-versions docker-ce  
   
 docker-ce/bookworm 5:29.3.0-1~debian.12~bookworm \<arch\>  
@@ -127,28 +127,28 @@ docker-ce/bookworm 5:29.2.1-1~debian.12~bookworm \<arch\>
 
 Selecione a versão desejada e instale:
 
-```
-$ VERSION\_STRING=5:29.3.0-1~debian.12~bookworm  
-$ sudo apt install docker-ce=$VERSION\_STRING docker-ce-cli=$VERSION\_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+```console
+$ VERSION_STRING=5:29.3.0-1~debian.12~bookworm  
+$ sudo apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 > \[!NOTA\]
 
 > O serviço Docker inicia automaticamente após a instalação. Para verificar se o Docker está em execução, use:
 
-```
+```console
 $ sudo systemctl status docker
 ```
 
 Alguns sistemas podem ter esse comportamento desativado e exigirão um início manual:
 
-```
+```console
 $ sudo systemctl start docker
 ```
 
 3. Verifique se a instalação foi bem-sucedida executando a imagem `hello-world`:
 
-```
+```console
 $ sudo docker run hello-world
 ```
 
@@ -190,31 +190,31 @@ Se você não puder usar o repositório `apt` do Docker para instalar o Docker E
 
 5. Instale os pacotes `.deb`. Atualize os caminhos no exemplo abaixo para onde você baixou os pacotes do Docker.
 
-```
-$ sudo dpkg -i ./containerd.io\_\<versão\>\_\<arquitetura\>.deb \\  
-  ./docker-ce\_\<versão\>\_\<arquitetura\>.deb \\  
-  ./docker-ce-cli\_\<versão\>\_\<arquitetura\>.deb \\  
-  ./docker-buildx-plugin\_\<versão\>\_\<arquitetura\>.deb \\  
-  ./docker-compose-plugin\_\<versão\>\_\<arquitetura\>.deb
+```console
+$ sudo dpkg -i ./containerd.io_<versão>_<arquitetura>.deb \  
+  ./docker-ce_<versão>_<arquitetura>.deb \  
+  ./docker-ce-cli_<versão>_<arquitetura>.deb \  
+  ./docker-buildx-plugin_<versão>_<arquitetura>.deb \  
+  ./docker-compose-plugin_<versão>_<arquitetura>.deb
 ```
 
 > \[!NOTA\]
 >
 > O serviço Docker inicia automaticamente após a instalação. Para verificar se o Docker está em execução, use:
 
-```
+```console
 $ sudo systemctl status docker
 ```
 
 Alguns sistemas podem ter esse comportamento desativado e exigirão um início manual:
 
-```
+```console
 $ sudo systemctl start docker
 ```
 
 6. Verifique se a instalação foi bem-sucedida executando a imagem `hello-world`:
 
-```
+```console
 $ sudo docker run hello-world
 ```
 
@@ -276,7 +276,7 @@ O Docker também fornece um script de conveniência em [https://test.docker.com/
 
 Para instalar a versão mais recente do Docker no Linux a partir do canal de teste, execute:
 
-```
+```console
 $ curl -fsSL https://test.docker.com -o test-docker.sh  
 $ sudo sh test-docker.sh
 ```
@@ -289,23 +289,22 @@ Se você instalou o Docker usando o script de conveniência, deve atualizar o Do
 
 1. Desinstale os pacotes Docker Engine, CLI, containerd e Docker Compose:
 
-```
+```console
 $ sudo apt purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 ```
 
 2. Imagens, containers, volumes ou arquivos de configuração personalizados em seu host não são removidos automaticamente. Para excluir todas as imagens, containers e volumes:
 
-```
+```console
 $ sudo rm -rf /var/lib/docker  
 $ sudo rm -rf /var/lib/containerd
 ```
 
 3. Remova a lista de fontes e os chaveiros:
 
-```
+```console
 $ sudo rm /etc/apt/sources.list.d/docker.sources  
 $ sudo rm /etc/apt/keyrings/docker.asc
 ```
 
 Você deve excluir manualmente quaisquer arquivos de configuração editados.
-
