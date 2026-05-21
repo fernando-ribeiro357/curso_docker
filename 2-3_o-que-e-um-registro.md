@@ -199,6 +199,7 @@ Neste passo a passo, você se inscreveu para uma conta Docker, criou seu primeir
 - [Início rápido do Docker Hub](https://docs.docker.com/docker-hub/quickstart/)
 - [Visão geral do Docker Build](https://docs.docker.com/build/concepts/overview/)
 - [Gerenciar repositórios do Docker Hub](https://docs.docker.com/docker-hub/repos/)
+- [Lab: Construindo Imagens de Container](https://docs.docker.com/guides/lab-building-images/)
 
 ## Referências
 

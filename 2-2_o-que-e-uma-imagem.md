@@ -140,8 +140,9 @@ Neste passo a passo, você pesquisou e baixou uma imagem Docker. Além de baixar
 
 Os seguintes recursos ajudarão você a aprender mais sobre como explorar, encontrar e construir imagens:
 
-*   [Conteúdo confiável do Docker](https://docs.docker.com/docker-hub/image-library/trusted-content/)
-*   [Docker Hub](https://hub.docker.com)
+- [Conteúdo confiável do Docker](https://docs.docker.com/docker-hub/image-library/trusted-content/)
+- [Docker Hub](https://hub.docker.com)
+- [Lab: Getting Started with Docker](https://docs.docker.com/guides/lab-container-getting-started/)
 
 ## Referências
 

@@ -115,9 +115,10 @@ Neste passo a passo, você aprendeu como usar o Docker Compose para iniciar e pa
 
 Esta página foi uma breve introdução ao Compose. Nos recursos a seguir, você pode se aprofundar no Compose e em como escrever arquivos Compose.
 
-* [Visão geral do Docker Compose](https://docs.docker.com/compose/)
-* [Visão geral da CLI do Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
-* [Como o Compose funciona](https://docs.docker.com/compose/intro/compose-application-model/)
+- [Visão geral do Docker Compose](https://docs.docker.com/compose/)
+- [Visão geral da CLI do Docker Compose](https://docs.docker.com/reference/cli/docker/compose/)
+- [Como o Compose funciona](https://docs.docker.com/compose/intro/compose-application-model/)
+- [Lab: Docker Compose Quickstart](https://docs.docker.com/guides/lab-compose-quickstart/)
 
 ## Referências
 
