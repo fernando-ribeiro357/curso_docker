@@ -24,7 +24,7 @@ Para instalar o Docker Engine, você precisa de uma destas versões do Debian:
 
 - Debian Bullseye 11 (antiga antiga estável)
 
-O Docker Engine para Debian é compatível com as arquiteturas x86\_64 (ou amd64), armhf (arm/v7), arm64 e ppc64le (ppc64el).
+O Docker Engine para Debian é compatível com as arquiteturas x86_64 (ou amd64), armhf (arm/v7), arm64 e ppc64le (ppc64el).
 
 ### Desinstalar versões antigas
 
@@ -80,7 +80,7 @@ sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc  
 sudo chmod a+r /etc/apt/keyrings/docker.asc  
   
-\# Adicione o repositório às fontes do Apt:  
+# Adicione o repositório às fontes do Apt:  
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF  
 Types: deb  
 URIs: https://download.docker.com/linux/debian  
