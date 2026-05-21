@@ -46,7 +46,7 @@ Além disso, o Docker Engine depende de `containerd` e `runc`. O Docker Engine e
 
 Execute o seguinte comando para desinstalar todos os pacotes conflitantes:
 
-```
+```console
 $ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
 ```
 
