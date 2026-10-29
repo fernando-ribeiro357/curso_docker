@@ -22,7 +22,7 @@ Para seguir este tutorial, você precisa de:
 
 ## Configurar um registro Docker
 
-Como um swarm consiste em múltiplos Docker Engines, um registro é necessário para distribuir imagens para todos eles. Você pode usar o [Docker Hub](https://hub.docker.com) ou manter o seu próprio. Veja como criar um registro descartável, que você pode remover afterward.
+Como um swarm consiste em múltiplos Docker Engines, um registro é necessário para distribuir imagens para todos eles. Você pode usar o [Docker Hub](https://hub.docker.com) ou manter o seu próprio. Veja como criar um registro descartável, que você pode remover depois.
 
 1.  Inicie o registro como um serviço no seu swarm:
 
